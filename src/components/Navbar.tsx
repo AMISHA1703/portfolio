@@ -27,7 +27,7 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <div className="hidden md:flex gap-10 text-md font-medium">
-          {["about", "skills", , "project","experience", "contact"].map((item) => (
+          {["about", "skills",  "project","experience", "contact"].map((item) => (
             <a
               key={item}
               href={`#${item}`}
