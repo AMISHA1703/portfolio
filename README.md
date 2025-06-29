@@ -1,69 +1,53 @@
-# React + TypeScript + Vite
+# 💼 Amisha Singh – Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek, responsive personal portfolio built using **React**, **Vite**, **Tailwind CSS**, and **EmailJS**. This site showcases my skills, projects, experience, and allows visitors to contact me directly via a functional form.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Demo
 
-## Expanding the ESLint configuration
+🔗 [View Portfolio](https://your-deployment-link.com)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ✨ Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- ⚡ Blazing fast build and performance with **Vite**
+- 💎 Clean and responsive UI built with **Tailwind CSS**
+- 📱 Mobile-first design with hamburger navigation
+- 🔗 Smooth scrolling navigation to sections: About, Skills, Projects, Experience, Contact
+- 📨 Contact form integration with **EmailJS**
+- 🔐 Environment variable support for secure API keys
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Tech Stack
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **React** – Frontend framework
+- **Vite** – Build tool for instant dev server and optimized builds
+- **Tailwind CSS** – Utility-first CSS for rapid UI development
+- **EmailJS** – Contact form submission without a custom backend
+- **Lucide-react** – Lightweight icon library
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## 📁 Project Structure
+portfolio/
+├── public/
+├── src/
+│ ├── components/ # Reusable UI components (Navbar, About, Contact, etc.)
+│ ├── pages/ # Home page structure
+│ ├── App.tsx
+│ └── main.tsx
+├── .env # EmailJS credentials (not committed)
+└── README.md
+
+🖼️ Screenshots
+💻 Desktop View
+
+📱 Mobile Navigation
+
+📄 License
+This project is licensed under the MIT License.
+See the LICENSE file for details.
+
