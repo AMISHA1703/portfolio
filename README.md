@@ -6,7 +6,7 @@ A sleek, responsive personal portfolio built using **React**, **Vite**, **Tailwi
 
 ## 🌐 Live Demo
 
-🔗 [View Portfolio](https://your-deployment-link.com)
+🔗 [View Portfolio](https://amishasingh.vercel.app/)
 
 ---
 
@@ -44,8 +44,10 @@ portfolio/
 
 🖼️ Screenshots
 💻 Desktop View
-
+![Desktop View](./src/utils/Desktop.png)
 📱 Mobile Navigation
+![Desktop View](./src/utils/Mobile.png)
+
 
 📄 License
 This project is licensed under the MIT License.
