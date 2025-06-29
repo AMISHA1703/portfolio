@@ -3,7 +3,8 @@
 // import weatherImg from "../utils/weather.png";
 import Quickpayvideo from "../utils/quick-pay-fjil - Overview – Vercel (1).mp4"
 import WeatherVideo from "../utils/AMISHA1703_Climate-Watch.mp4"
-
+import FreelanceVideo from "../utils/freelance website output video (online-video-cutter.com).mp4"
+import BotVideo from "../utils/Bot.mp4"
 const Project = () => {
   const projects = [
     {
@@ -16,24 +17,33 @@ const Project = () => {
       github: "https://github.com/AMISHA1703/QuickPay",
     },
     {
-      title: "Gemini Bot",
-      tech: "React.js, Node.js, Express.js, Google Gemini API",
-      // image: botImg,
-      video:"",
-      description: `Built full-stack AI chatbot using React.js frontend and Express.js backend.Integrated Google Gemini API to handle user queries and managed asynchronous flow using Axios.`,
-      live: "https://gemini-bot-4ibv.vercel.app/",
-      github: "https://github.com/AMISHA1703/Gemini-bot",
-    },
-    {
       title: "Weather App",
       tech: "HTML, CSS, JavaScript, OpenWeatherMap API",
       // image: weatherImg,
       video:WeatherVideo,
-      description: `Created a responsive weather app that displays temperature, humidity, and wind speed.
-Integrated OpenWeatherMap API and implemented dynamic UI changes based on weather conditions.`,
+      description: `Created a responsive weather app that displays temperature, humidity, and wind speed.Integrated OpenWeatherMap API and implemented dynamic UI changes based on weather conditions.`,
       live: "https://climate-watch.netlify.app/",
       github: "https://github.com/AMISHA1703/Climate-Watch",
     },
+     {
+      title: "Gemini Bot",
+      tech: "React.js, Node.js, Express.js, Google Gemini API",
+      // image: botImg,
+      video:BotVideo,
+      description: `Built full-stack AI chatbot using React.js frontend and Express.js backend.Integrated Google Gemini API to handle user queries and managed asynchronous flow using Axios.`,
+      live: "https://gemini-bot-4ibv.vercel.app/",
+      github:"https://github.com/AMISHA1703/Gemini-bot",
+    },
+    {
+  title: "Freelance Website",
+  tech: "HTML, CSS, JavaScript",
+  // image: freelanceImg,
+  video: FreelanceVideo,
+  description: `Developed a simple freelance service website with a homepage, service listings, and contact form.Focused on clean UI and responsive design to showcase services effectively.`,
+  live: "https://freelance-application-xi.vercel.app/",
+  github: "https://github.com/AMISHA1703/Freelance-Application/tree/main",
+},
+
   ];
 
   return (
@@ -46,7 +56,7 @@ Integrated OpenWeatherMap API and implemented dynamic UI changes based on weathe
       </h2>
 
       {/* Grid layout */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {projects.map((proj, index) => (
           <div
             key={index}
