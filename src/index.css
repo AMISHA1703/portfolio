@@ -80,10 +80,10 @@ button:focus-visible {
   a:hover {
     color: #747bff;
   }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+  /* button {
+    /* background-color: #f9f9f9; */
+  } */
+/* } */
 html {
   scroll-behavior: smooth;
 }
