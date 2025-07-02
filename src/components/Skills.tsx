@@ -50,7 +50,7 @@ const Skills = () => {
       </p>
 
       {/* Skill Tags */}
-      <div className="flex flex-wrap justify-center gap-3 mb-10">
+      <div className="flex flex-wrap justify-center gap-3 mb-10 text-justify">
         {skillTags.map((tag, index) => (
           <span
             key={index}

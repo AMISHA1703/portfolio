@@ -19,7 +19,7 @@ const About = () => {
           I'm Amisha Singh
         </h1>
         <h2 className=" text-teal-600 text-2xl text-semibold md:text-xl font-bold  mb-1">Full Stack Developer <span className="text-white">|</span><span className="text-teal-300">  open to work</span></h2>
-        <p className="text-gray-300 leading-relaxed sm:text-justify">
+        <p className="text-gray-300 leading-relaxed text-justify">
          a Computer Science student who enjoys building full-stack web applications. I’ve worked with React, Node.js, Express, and MongoDB, and I’m currently learning Docker and PostgreSQL by applying them in my own projects.I like figuring things out by building real stuff — from simple UIs to backend APIs. I’m comfortable with HTML, CSS, JavaScript, Git, and REST. Most of what I know, I’ve learned by doing and making mistakes.Right now, I’m looking for opportunities where I can work on real-world problems, learn from others, and improve my skills through hands-on work. I’m ready to contribute from day one.
         </p>
 
@@ -41,7 +41,7 @@ const About = () => {
           <a
             href="https://drive.google.com/file/d/1UglfvTRcF13xhRrNirfvQwRJNDGeYkWd/view?usp=sharing" 
             download
-            className="inline-block px-6 py-2 bg-cyan-400 text-black rounded-full font-semibold hover:bg-cyan-500 transition"
+            className="inline-block px-5 py-2 bg-cyan-400 text-black rounded-full font-semibold hover:bg-cyan-500 transition"
           >
             view Resume
           </a>

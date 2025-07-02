@@ -63,7 +63,7 @@ const Project = () => {
             className="bg-black/30 backdrop-blur-sm p-6 border border-gray-700 rounded-xl shadow-xl flex flex-col"
           >
             {/* Image */}
-            <div className="w-full h-64 overflow-hidden rounded-lg shadow-md mb-4">
+            <div className=" w-full h-64 overflow-hidden rounded-lg shadow-md mb-4">
               {/* <img
                 src={proj.image}
                 alt={proj.title}
@@ -72,7 +72,7 @@ const Project = () => {
 
                <video
               src={proj.video}
-              className="w-full h-full object-cover"
+              className=" w-full h-full object-contain sm:object-cover"
               autoPlay
               muted
               loop
@@ -88,7 +88,7 @@ const Project = () => {
             <p className="text-sm text-gray-400 italic mb-3">{proj.tech}</p>
 
             {/* Description */}
-            <p className="text-gray-300 whitespace-pre-line mb-6 leading-relaxed flex-1">
+            <p className="text-gray-300  text-justify  whitespace-pre-line mb-6 leading-relaxed flex-1">
               {proj.description}
             </p>
 
@@ -98,7 +98,7 @@ const Project = () => {
                 href={proj.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-2 rounded-full bg-cyan-400 text-black font-semibold hover:bg-cyan-500 transition shadow-md"
+                className="px-4 py-2 rounded-full bg-cyan-400 text-black font-semibold hover:bg-cyan-500 transition shadow-md"
               >
                 View Project
               </a>
@@ -106,7 +106,7 @@ const Project = () => {
                 href={proj.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-2 rounded-full border border-cyan-400 text-cyan-300 hover:bg-cyan-500 hover:text-black transition shadow-md"
+                className="px-6 py-2  text-center rounded-full border border-cyan-400 text-cyan-300 hover:bg-cyan-500 hover:text-black transition shadow-md"
               >
                 GitHub
               </a>
