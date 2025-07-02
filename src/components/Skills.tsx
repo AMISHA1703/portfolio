@@ -38,7 +38,7 @@ const Skills = () => {
       <h2 className="text-3xl font-bold mb-4 text-center text-white">Skills</h2>
 
       {/* 🧠 Storytelling Section */}
-      <p className="text-center text-justify text-gray-300 max-w-3xl mx-auto mb-10 text-sm leading-relaxed">
+      <p className="text-centr text-justify text-gray-300 max-w-3xl mx-auto mb-10 text-sm leading-relaxed">
         I started my tech journey by learning <span className="text-teal-400 font-semibold">C and C++</span> to build
         a strong foundation in logic and programming. As I got comfortable, I transitioned into web development with
         <span className="text-teal-400 font-semibold"> JavaScript</span> and discovered a passion for building dynamic UIs using
