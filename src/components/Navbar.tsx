@@ -9,7 +9,7 @@ const Navbar = () => {
   const navItems = ["about", "skills", "project", "experience", "articles", "contact"];
 
   return (
-    <nav className="w-full fixed top-0 left-0 z-50 px-6 py-4 bg-black/60 text-white backdrop-blur-md shadow-lg">
+    <nav className="w-full fixed top-0 left-0 z-50 px-6 py-4 bg-black/60 text-white backdrop-blur-md shadow-lg ">
       <div className="flex items-center justify-between">
         {/* Logo */}
         <div className="text-2xl font-bold tracking-wider">
