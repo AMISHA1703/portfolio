@@ -3,10 +3,19 @@
 // import weatherImg from "../utils/weather.png";
 import Quickpayvideo from "../utils/quick-pay-fjil - Overview – Vercel (1).mp4"
 import WeatherVideo from "../utils/AMISHA1703_Climate-Watch.mp4"
-import FreelanceVideo from "../utils/freelance website output video (online-video-cutter.com).mp4"
+// import FreelanceVideo from "../utils/freelance website output video (online-video-cutter.com).mp4"
+import WhiteboardVideo from "../utils/collaborative whiteboard.mp4"
 import BotVideo from "../utils/Bot.mp4"
 const Project = () => {
   const projects = [
+    {
+      title: "Collaborative Whiteboard",
+      tech: "React.js, Node.js, Express.js, Tailwind CSS, MongoDB, Socket.io",
+      video: WhiteboardVideo  ,
+      description: `A real-time collaborative whiteboard built with the MERN stack and Socket.IO for live drawing and cursor sharing between users — without any authentication. Just share a room code and draw together!.`,
+      live: "https://collaborative-whiteboard-gilt-theta.vercel.app/",
+      github: "https://github.com/AMISHA1703/Collaborative-Whiteboard",
+    },
     {
       title: "QuickPay",
       tech: "React.js, Node.js, Express.js, Tailwind CSS, MongoDB, JWT, Zod",
@@ -34,15 +43,15 @@ const Project = () => {
       live: "https://gemini-bot-4ibv.vercel.app/",
       github:"https://github.com/AMISHA1703/Gemini-bot",
     },
-    {
-  title: "Freelance Website",
-  tech: "HTML, CSS, JavaScript",
-  // image: freelanceImg,
-  video: FreelanceVideo,
-  description: `Developed a simple freelance service website with a homepage, service listings, and contact form.Focused on clean UI and responsive design to showcase services effectively.`,
-  live: "https://freelance-application-xi.vercel.app/",
-  github: "https://github.com/AMISHA1703/Freelance-Application/tree/main",
-},
+//     {
+//   title: "Freelance Website",
+//   tech: "HTML, CSS, JavaScript",
+//   // image: freelanceImg,
+//   video: FreelanceVideo,
+//   description: `Developed a simple freelance service website with a homepage, service listings, and contact form.Focused on clean UI and responsive design to showcase services effectively.`,
+//   live: "https://freelance-application-xi.vercel.app/",
+//   github: "https://github.com/AMISHA1703/Freelance-Application/tree/main",
+// },
 
   ];
 
