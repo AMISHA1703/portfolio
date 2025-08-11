@@ -9,6 +9,16 @@ type ExperienceCardProps = {
 };
 
 const experiences: ExperienceCardProps[] = [
+   {
+    title: 'Web developer Intern',
+    company: 'Nk technologies ITSol pvt Ltd ,noida, uttar pradesh - on site',
+    date: 'Aug 2025 – present',
+    description:
+      'Worked on a Node.js-based project, building and optimizing backend APIs. Gained exposure to React for frontend integration, WordPress development for content management, and SEO techniques for improving website visibility. Collaborated on code enhancements, bug fixes, and feature implementation.'
+      ,
+    linkUrl:"",
+    linkText:""
+  },
   {
     title: 'Full Stack Intern',
     company: 'SmartInternz in collaboration with SmartBridge & MongoDB – Virtual',

@@ -2,8 +2,10 @@ import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 
 const About = () => {
   return (
-    <div id ="about"className="flex flex-col md:flex-row items-center  p-6 gap-10 bg-black/60 mt-15  border-top rounded-md  shadow-xl backdrop-blur-sm min-h-screen">
-      
+    <div
+      id="about"
+      className="flex flex-col md:flex-row items-center  p-6 gap-10 bg-black/60 mt-15  border-top rounded-md  shadow-xl backdrop-blur-sm min-h-screen"
+    >
       {/* Image Section */}
       <div className="md:w-[40%] w-full flex justify-center">
         <img
@@ -18,20 +20,44 @@ const About = () => {
         <h1 className="text-2xl md:text-3xl font-bold text-white mb-4">
           I'm Amisha Singh
         </h1>
-        <h2 className=" text-teal-600 text-2xl text-semibold md:text-xl font-bold  mb-1">Full Stack Developer <span className="text-white">|</span><span className="text-teal-300">  open to work</span></h2>
+        <h2 className=" text-teal-600 text-2xl text-semibold md:text-xl font-bold  mb-1">
+          web developer intern NKtech <span className="text-white"></span>
+          {/* <span className="text-teal-300"> </span> */}
+        </h2>
         <p className="text-gray-300 leading-relaxed text-justify">
-         a Computer Science student who enjoys building full-stack web applications. I’ve worked with React, Node.js, Express, and MongoDB, and I’m currently learning Docker and PostgreSQL by applying them in my own projects.I like figuring things out by building real stuff — from simple UIs to backend APIs. I’m comfortable with HTML, CSS, JavaScript, Git, and REST. Most of what I know, I’ve learned by doing and making mistakes.Right now, I’m looking for opportunities where I can work on real-world problems, learn from others, and improve my skills through hands-on work. I’m ready to contribute from day one.
+          Hi, I’m Amisha. I’m a Full Stack Developer working with the MERN and
+          PERN stacks. I’m currently working as a Web Development Intern at NK
+          Technologies, where I’m involved in a Node.js project focused on
+          backend development using Express . I also have experience building
+          full-stack applications with React.js, MongoDB, and working with APIs.
+          Alongside this, I’ve explored WordPress development and have some
+          understanding of SEO practices, which helps me see how websites
+          perform from both a technical and content perspective. I regularly
+          practice Data Structures and Algorithms (DSA) on platforms like
+          LeetCode to improve my problem-solving skills.
         </p>
 
         {/* Social Icons */}
         <div className="flex justify-center md:justify-start gap-4 mt-4">
-          <a href="https://x.com/AmishaS86389365?s=08" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://x.com/AmishaS86389365?s=08"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaTwitter className="text-white hover:text-cyan-400 text-xl" />
           </a>
-          <a href="https://github.com/AMISHA1703" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://github.com/AMISHA1703"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaGithub className="text-white hover:text-cyan-400 text-xl" />
           </a>
-          <a href="https://www.linkedin.com/in/amisha-singh1701/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.linkedin.com/in/amisha-singh1701/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaLinkedin className="text-white hover:text-cyan-400 text-xl" />
           </a>
         </div>
@@ -39,7 +65,7 @@ const About = () => {
         {/* view resume Button */}
         <div className="mt-5">
           <a
-            href="https://drive.google.com/file/d/1UglfvTRcF13xhRrNirfvQwRJNDGeYkWd/view?usp=sharing" 
+            href="https://drive.google.com/file/d/1UglfvTRcF13xhRrNirfvQwRJNDGeYkWd/view?usp=sharing"
             download
             className="inline-block px-5 py-2 bg-cyan-400 text-black rounded-full font-semibold hover:bg-cyan-500 transition"
           >
