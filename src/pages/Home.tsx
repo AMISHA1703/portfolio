@@ -3,9 +3,9 @@ import Project from "../components/Project";
 import Experience from "../components/Experience";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
-import About from "../components/About.jsx";
+import About from "../components/About";
 import Certificate from "../components/Certification";
-import FreelanceProjects from "../components/Freelance.jsx";
+import FreelanceProjects from "../components/Freelance";
 
 const Home = () => {
   return (
