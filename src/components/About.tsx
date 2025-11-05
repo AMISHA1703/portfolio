@@ -13,8 +13,7 @@ const About = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const theme = "dark";
-  const containerRef = useRef(null);
-  const isScrollingRef = useRef(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   const slides = [
     {
@@ -63,7 +62,7 @@ const About = () => {
               theme === "dark" ? "text-gray-500" : "text-gray-500"
             }`}
           >
-            Gorakhpur , Uttar Pradesh , India
+            Gorakhpur, Uttar Pradesh, India
           </p>
         </div>
       ),
@@ -185,7 +184,7 @@ const About = () => {
     if (isPaused) return;
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 7000); // slower now: 7 seconds
+    }, 7000);
     return () => clearInterval(interval);
   }, [isPaused, slides.length]);
 
@@ -194,21 +193,18 @@ const About = () => {
       ref={containerRef}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className={`p-6 sm:p-8 mt-6 mb-2 backdrop-blur-sm transition-all duration-300 shadow-md hover:shadow-teal-500/10 ${containerClasses}`}
+      className={`relative p-6 sm:p-8 mt-6 mb-2 backdrop-blur-sm transition-all duration-300 shadow-md hover:shadow-teal-500/10 ${containerClasses}`}
     >
-      {/* Slide Title */}
       <h2
         className={`text-2xl sm:text-3xl font-semibold text-center mb-6 ${headingClasses}`}
       >
         {slides[currentSlide].title}
       </h2>
 
-      {/* Slide Content */}
       <div className="min-h-[200px] flex items-center justify-center px-8">
         {slides[currentSlide].content}
       </div>
 
-      {/* Navigation Buttons */}
       <button
         onClick={prevSlide}
         className={`absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-gray-700/50 transition-colors ${
@@ -219,6 +215,7 @@ const About = () => {
       >
         <FaChevronLeft className="text-xl" />
       </button>
+
       <button
         onClick={nextSlide}
         className={`absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-gray-700/50 transition-colors ${
@@ -230,7 +227,6 @@ const About = () => {
         <FaChevronRight className="text-xl" />
       </button>
 
-      {/* Slide Indicators */}
       <div className="flex justify-center gap-2 mt-6">
         {slides.map((_, index) => (
           <button

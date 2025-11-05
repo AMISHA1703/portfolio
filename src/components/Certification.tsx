@@ -1,12 +1,11 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const Certificate = () => {
-  const [selectedImg, setSelectedImg] = useState(null);
+  const [selectedImg, setSelectedImg] = useState<string | null>(null);
 
-  
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setSelectedImg(null);
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -28,14 +27,11 @@ const Certificate = () => {
 
   return (
     <>
-      {/*  Certificates Section */}
+      {/* Certificates Section */}
       <section
         className="relative backdrop-blur-md rounded-md mt-4 p-6 transition-all duration-300 
         bg-black/20 border border-white/10"
       >
-        
-
-        {/* Auto-scrolling Certificates  */}
         <div className="relative mt-4 overflow-hidden">
           <div className="flex items-center gap-5 animate-marquee whitespace-nowrap h-30">
             {[...certificates, ...certificates].map((cert, idx) => (
@@ -55,7 +51,7 @@ const Certificate = () => {
         </div>
       </section>
 
-      {/* outside section to avoid clipping*/}
+      {/* Modal Viewer */}
       {selectedImg && (
         <div
           className="fixed inset-0 bg-black/90 flex items-center justify-center z-[9999] p-4 overflow-auto"
@@ -77,8 +73,8 @@ const Certificate = () => {
         </div>
       )}
 
-      {/* Animations  */}
-      <style jsx>{`
+      {/* Animations */}
+      <style>{`
         @keyframes marquee {
           0% {
             transform: translateX(0%);
