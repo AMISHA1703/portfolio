@@ -1,54 +1,48 @@
 import { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-type ExperienceCardProps = {
-  title: string;
-  company: string;
-  date: string;
-  description: string;
-  demoLink?: string;
-};
-
-const experiences: ExperienceCardProps[] = [
+const freelanceProjects = [
   {
-    title: "Web Developer Intern",
-    company: "Nk Technologies ITSol Pvt Ltd, Noida, Uttar Pradesh — On-site",
-    date: "Aug 2025 – Present",
+    title: "The Indic Wing",
+    client: "Freelance Project",
     description:
-      "Developed a full-stack Municipal Corporation Portal (MERN) with modules for tenders, news, gallery, feedback, and multilingual support, enabling digital access to civic services. Integrated Cloudinary and Multer for secure media management, built a JWT + bcrypt–secured admin panel for dynamic content control, and deployed the portal using cPanel (frontend), Render (backend), and MongoDB Atlas (database). Contributed to an E-commerce site by implementing client-requested updates, including login and registration flow fixes, mouse-scroll functionality in the Popular Products section, a new “Junior” section, and improved navbar design. Delivered multiple WordPress projects, managing complete setup, customization, and deployment while ensuring functional, performance-focused web experiences for clients.",
+      "Developed and deployed a complete WordPress website for a client, handling theme customization, plugin integration, and performance optimization. Ensured smooth navigation, responsive layout, and professional content presentation.",
+    link: "https://theindicwing.com",
   },
   {
-    title: "Full Stack Intern",
-    company: "SmartInternz in collaboration with SmartBridge & MongoDB — Virtual",
-    date: "Jan 2025 – Mar 2025",
+    title: "Heritage America Land",
+    client: "NK Technologies ITSol Pvt. Ltd.",
     description:
-      "Completed a structured MERN Stack internship program with hands-on projects focused on full-stack development. Built and deployed applications implementing authentication, validation, and modern best practices.",
-    demoLink:
-      "https://drive.google.com/file/d/1kfCw3mzlQVMkEw8X0-Xqof6-ZL58YOBu/view",
-  },
+      "Delivered multiple WordPress websites during internship, handling complete setup, theme and plugin customization, and deployment via cPanel. Focused on creating clean, functional, and performance-driven sites for client needs.",
+      link:"https://heritageamericaland.com"
+  }
+  
 ];
 
-const Experience = () => {
+const FreelanceProjects = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const theme = "dark"; // Replace with useThemeChange() if needed
+  const theme = "dark"; // replace with your useThemeChange hook if available
 
-  // === Auto-slide ===
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % experiences.length);
+      setCurrentSlide((prev) => (prev + 1) % freelanceProjects.length);
     }, 6000);
     return () => clearInterval(interval);
   }, []);
 
-  const nextSlide = () =>
-    setCurrentSlide((prev) => (prev + 1) % experiences.length);
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % freelanceProjects.length);
+  };
 
-  const prevSlide = () =>
-    setCurrentSlide((prev) => (prev - 1 + experiences.length) % experiences.length);
+  const prevSlide = () => {
+    setCurrentSlide(
+      (prev) => (prev - 1 + freelanceProjects.length) % freelanceProjects.length
+    );
+  };
 
   return (
     <section
-      id="experience"
+      id="freelance"
       className={`shadow-xl backdrop-blur-md py-16 px-6 mt-2 mb-2 md:px-20 rounded-xl transition-all duration-300 ${
         theme === "dark"
           ? "bg-black/20 border border-white/10"
@@ -56,14 +50,13 @@ const Experience = () => {
       }`}
     >
       <h2
-        className={`text-4xl font-bold mb-10 text-center ${
+        className={`text-2xl font-bold mb-10 text-center ${
           theme === "dark" ? "text-white" : "text-gray-900"
         }`}
       >
-        Experience
+         Client Projects
       </h2>
 
-      {/* === Slider Container === */}
       <div className="relative max-w-4xl mx-auto">
         <div
           className={`relative shadow-xl backdrop-blur-md rounded-lg p-8 transition-all duration-300 ${
@@ -72,7 +65,7 @@ const Experience = () => {
               : "bg-white border border-gray-200"
           }`}
         >
-          {/* === Navigation Arrows === */}
+          {/* Navigation Buttons */}
           <button
             onClick={prevSlide}
             className={`absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full transition-colors duration-300 z-10 ${
@@ -80,7 +73,7 @@ const Experience = () => {
                 ? "text-gray-400 hover:text-white hover:bg-white/5"
                 : "text-gray-600 hover:text-black hover:bg-gray-100"
             }`}
-            aria-label="Previous experience"
+            aria-label="Previous project"
           >
             <FaChevronLeft className="text-xl" />
           </button>
@@ -92,12 +85,12 @@ const Experience = () => {
                 ? "text-gray-400 hover:text-white hover:bg-white/5"
                 : "text-gray-600 hover:text-black hover:bg-gray-100"
             }`}
-            aria-label="Next experience"
+            aria-label="Next project"
           >
             <FaChevronRight className="text-xl" />
           </button>
 
-          {/* === Experience Content === */}
+          {/* Project Content */}
           <div className="px-8">
             <div className="absolute -left-4 top-8 w-3 h-3 bg-teal-500 rounded-full"></div>
 
@@ -106,34 +99,26 @@ const Experience = () => {
                 theme === "dark" ? "text-white" : "text-gray-900"
               }`}
             >
-              {experiences[currentSlide].title}
+              {freelanceProjects[currentSlide].title}
             </h3>
-            <p className="text-blue-500 font-medium mt-2">
-              {experiences[currentSlide].company}
+            <p className="text-blue-500 font-medium text-sm mt-2">
+              {freelanceProjects[currentSlide].client}
             </p>
             <p
-              className={`text-sm mt-1 ${
-                theme === "dark" ? "text-gray-400" : "text-gray-600"
-              }`}
-            >
-              {experiences[currentSlide].date}
-            </p>
-
-            <p
-              className={`mt-4 text-sm leading-relaxed text-justify ${
+              className={`mt-4 leading-relaxed text-sm ${
                 theme === "dark" ? "text-gray-300" : "text-gray-700"
               }`}
             >
-              {experiences[currentSlide].description}
+              {freelanceProjects[currentSlide].description}
             </p>
 
-            {experiences[currentSlide].demoLink && (
-              <div className="mt-4 flex justify-end">
+            {freelanceProjects[currentSlide].link && (
+              <div className="mt-4">
                 <a
-                  href={experiences[currentSlide].demoLink}
+                  href={freelanceProjects[currentSlide].link}
                   target="_blank"
                   rel="noreferrer"
-                  className={`flex items-center gap-2 transition-colors duration-300 ${
+                  className={`flex items-center justify-end gap-2 transition-colors duration-300 ${
                     theme === "dark"
                       ? "text-gray-300 hover:text-white"
                       : "text-gray-600 hover:text-black"
@@ -154,15 +139,15 @@ const Experience = () => {
                     <polyline points="15 3 21 3 21 9"></polyline>
                     <line x1="10" y1="14" x2="21" y2="3"></line>
                   </svg>
-                  <span>Demo</span>
+                  <span>View Site</span>
                 </a>
               </div>
             )}
           </div>
 
-          {/* === Slide Indicators === */}
+          {/* Slide Indicators */}
           <div className="flex justify-center gap-2 mt-6">
-            {experiences.map((_, index) => (
+            {freelanceProjects.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
@@ -173,17 +158,17 @@ const Experience = () => {
                     ? "bg-gray-600 hover:bg-gray-500 w-2"
                     : "bg-gray-400 hover:bg-gray-500 w-2"
                 }`}
-                aria-label={`Go to experience ${index + 1}`}
+                aria-label={`Go to project ${index + 1}`}
               />
             ))}
           </div>
         </div>
 
-        {/* === Timeline Line === */}
+        {/* Decorative Timeline Line */}
         <div className="absolute -left-4 top-0 bottom-0 w-0.5 bg-blue-500"></div>
       </div>
     </section>
   );
 };
 
-export default Experience;
+export default FreelanceProjects;

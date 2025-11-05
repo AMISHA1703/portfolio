@@ -34,11 +34,11 @@ body::before {
 
 a {
   font-weight: 500;
-  color: #646ad9;
+  /* color: #d0d2ef; */
   text-decoration: inherit;
 }
 a:hover {
-  color: #7e80bc;
+  color: #9a9de4;
 }
 
 body {
@@ -74,11 +74,11 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: #bcdaf4;
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #d5d6ef;
   }
   /* button {
     /* background-color: #f9f9f9; */
