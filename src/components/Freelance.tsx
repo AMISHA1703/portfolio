@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const freelanceProjects = [
   {
@@ -14,15 +14,21 @@ const freelanceProjects = [
     client: "NK Technologies ITSol Pvt. Ltd.",
     description:
       "Delivered multiple WordPress websites during internship, handling complete setup, theme and plugin customization, and deployment via cPanel. Focused on creating clean, functional, and performance-driven sites for client needs.",
-      link:"https://heritageamericaland.com"
+    link: "https://heritageamericaland.com"
   }
-  
 ];
 
 const FreelanceProjects = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isExpanded, setIsExpanded] = useState(false);
   const theme = "dark"; // replace with your useThemeChange hook if available
 
+  // Reset expansion when slide changes
+  useEffect(() => {
+    setIsExpanded(false);
+  }, [currentSlide]);
+
+  // Auto-slide
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % freelanceProjects.length);
@@ -40,26 +46,28 @@ const FreelanceProjects = () => {
     );
   };
 
+  const toggleExpanded = () => setIsExpanded(!isExpanded);
+
   return (
     <section
       id="freelance"
-      className={`shadow-xl backdrop-blur-md py-16 px-6 mt-2 mb-2 md:px-20 rounded-xl transition-all duration-300 ${
+      className={`shadow-xl backdrop-blur-md py-12 md:py-16 px-4 md:px-6 mt-2 mb-2 lg:px-20 rounded-xl transition-all duration-300 ${
         theme === "dark"
           ? "bg-black/20 border border-white/10"
           : "bg-white border border-gray-200"
       }`}
     >
       <h2
-        className={`text-2xl font-bold mb-10 text-center ${
+        className={`text-xl md:text-3xl lg:text-2xl font-bold mb-8 md:mb-10 text-center ${
           theme === "dark" ? "text-white" : "text-gray-900"
         }`}
       >
-         Client Projects
+        Client Projects
       </h2>
 
       <div className="relative max-w-4xl mx-auto">
         <div
-          className={`relative shadow-xl backdrop-blur-md rounded-lg p-8 transition-all duration-300 ${
+          className={`relative shadow-xl backdrop-blur-md rounded-lg p-6 md:p-8 transition-all duration-300 ${
             theme === "dark"
               ? "bg-black/5 border border-white/10"
               : "bg-white border border-gray-200"
@@ -68,49 +76,77 @@ const FreelanceProjects = () => {
           {/* Navigation Buttons */}
           <button
             onClick={prevSlide}
-            className={`absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full transition-colors duration-300 z-10 ${
+            className={`absolute left-1 md:left-2 top-1/2 -translate-y-1/2 p-1.5 md:p-2 rounded-full transition-colors duration-300 z-10 ${
               theme === "dark"
                 ? "text-gray-400 hover:text-white hover:bg-white/5"
                 : "text-gray-600 hover:text-black hover:bg-gray-100"
             }`}
             aria-label="Previous project"
           >
-            <FaChevronLeft className="text-xl" />
+            <FaChevronLeft className="text-lg md:text-xl" />
           </button>
 
           <button
             onClick={nextSlide}
-            className={`absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full transition-colors duration-300 z-10 ${
+            className={`absolute right-1 md:right-2 top-1/2 -translate-y-1/2 p-1.5 md:p-2 rounded-full transition-colors duration-300 z-10 ${
               theme === "dark"
                 ? "text-gray-400 hover:text-white hover:bg-white/5"
                 : "text-gray-600 hover:text-black hover:bg-gray-100"
             }`}
             aria-label="Next project"
           >
-            <FaChevronRight className="text-xl" />
+            <FaChevronRight className="text-lg md:text-xl" />
           </button>
 
           {/* Project Content */}
-          <div className="px-8">
+          <div className="px-6 md:px-8">
             <div className="absolute -left-4 top-8 w-3 h-3 bg-teal-500 rounded-full"></div>
 
             <h3
-              className={`text-xl font-semibold ${
+              className={`text-lg md:text-xl font-semibold ${
                 theme === "dark" ? "text-white" : "text-gray-900"
               }`}
             >
               {freelanceProjects[currentSlide].title}
             </h3>
-            <p className="text-blue-500 font-medium text-sm mt-2">
+            <p className="text-blue-500 font-medium text-sm md:text-base mt-2">
               {freelanceProjects[currentSlide].client}
             </p>
-            <p
-              className={`mt-4 leading-relaxed text-sm ${
-                theme === "dark" ? "text-gray-300" : "text-gray-700"
-              }`}
-            >
-              {freelanceProjects[currentSlide].description}
-            </p>
+
+            {/* Description with Read More */}
+            <div className="mt-4">
+              <p
+                className={`leading-relaxed text-sm  text-justify md:text-base ${
+                  theme === "dark" ? "text-gray-300" : "text-gray-700"
+                } ${
+                  !isExpanded ? "line-clamp-3 lg:line-clamp-none" : ""
+                }`}
+              >
+                {freelanceProjects[currentSlide].description}
+              </p>
+
+              {/* Read More Button - Only on mobile and tablet */}
+              <button
+                onClick={toggleExpanded}
+                className={`lg:hidden flex items-center gap-1 mt-2 text-sm font-medium transition-colors duration-300 ${
+                  theme === "dark"
+                    ? "text-teal-400 hover:text-teal-300"
+                    : "text-teal-600 hover:text-teal-700"
+                }`}
+              >
+                {isExpanded ? (
+                  <>
+                    <span>Read less</span>
+                    <FaChevronUp className="text-xs" />
+                  </>
+                ) : (
+                  <>
+                    <span>Read more</span>
+                    <FaChevronDown className="text-xs" />
+                  </>
+                )}
+              </button>
+            </div>
 
             {freelanceProjects[currentSlide].link && (
               <div className="mt-4">
@@ -118,7 +154,7 @@ const FreelanceProjects = () => {
                   href={freelanceProjects[currentSlide].link}
                   target="_blank"
                   rel="noreferrer"
-                  className={`flex items-center justify-end gap-2 transition-colors duration-300 ${
+                  className={`flex items-center justify-end gap-2 text-sm md:text-base transition-colors duration-300 ${
                     theme === "dark"
                       ? "text-gray-300 hover:text-white"
                       : "text-gray-600 hover:text-black"

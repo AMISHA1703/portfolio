@@ -36,7 +36,7 @@ const Contact = () => {
       className="shadow-xl rounded-xl backdrop-blur-sm py-16 px-6 md:px-20 transition-all duration-300 
       bg-black/20 border border-white/10"
     >
-      <h3 className="text-3xl font-bold text-center mb-1 text-white">
+      <h3 className="text-2xl font-bold text-center mb-1 text-white">
         Contact Me
       </h3>
 

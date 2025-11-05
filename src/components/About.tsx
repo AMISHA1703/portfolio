@@ -1,26 +1,25 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import {
+  FaChevronLeft,
+  FaChevronRight,
   FaEnvelope,
   FaGithub,
   FaLinkedin,
-  FaChevronLeft,
-  FaChevronRight,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { SiMedium } from "react-icons/si";
 
 const About = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const theme = "dark";
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const theme = "dark"; // or use useThemeChange()
 
   const slides = [
     {
       title: "About",
+      subtitle: "Professional Overview",
       content: (
         <p
-          className={`text-sm leading-relaxed text-center ${
+          className={`text-sm md:text-base leading-relaxed text-justify ${
             theme === "dark" ? "text-gray-300" : "text-gray-700"
           }`}
         >
@@ -34,10 +33,11 @@ const About = () => {
     },
     {
       title: "Education",
+      subtitle: "Academic Background",
       content: (
         <div className="text-center">
           <p
-            className={`text-lg font-semibold ${
+            className={`text-base md:text-lg font-semibold ${
               theme === "dark" ? "text-white" : "text-black"
             }`}
           >
@@ -69,8 +69,9 @@ const About = () => {
     },
     {
       title: "Skills",
+      subtitle: "Technical Proficiencies",
       content: (
-        <div className="flex items-center justify-center flex-wrap gap-2">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 max-w-2xl mx-auto">
           {[
             "JavaScript",
             "React.js",
@@ -91,7 +92,7 @@ const About = () => {
           ].map((skill) => (
             <span
               key={skill}
-              className={`text-xs px-3 py-1.5 rounded ${
+              className={`text-xs sm:text-sm px-3 py-1.5 rounded ${
                 theme === "dark"
                   ? "bg-gray-800 text-gray-200 border border-gray-700"
                   : "bg-gray-200 text-gray-800 border border-gray-400"
@@ -105,144 +106,151 @@ const About = () => {
     },
     {
       title: "Connect",
+      subtitle: "Social & Professional Links",
       content: (
-        <div className="flex flex-wrap gap-6 items-center justify-center">
-          <a
-            href="mailto:amishasingh1701@gmail.com"
-            target="_blank"
-            rel="noreferrer"
-            className={`flex flex-col items-center gap-2 hover:text-teal-500 transition-colors ${
-              theme === "dark" ? "text-gray-300" : "text-gray-600"
-            }`}
-          >
-            <FaEnvelope className="text-3xl" />
-            <span className="text-xs">Email</span>
-          </a>
-          <a
-            href="https://github.com/AMISHA1703"
-            target="_blank"
-            rel="noreferrer"
-            className={`flex flex-col items-center gap-2 hover:text-teal-500 transition-colors ${
-              theme === "dark" ? "text-gray-300" : "text-gray-600"
-            }`}
-          >
-            <FaGithub className="text-3xl" />
-            <span className="text-xs">GitHub</span>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/amisha-singh1701/"
-            target="_blank"
-            rel="noreferrer"
-            className={`flex flex-col items-center gap-2 hover:text-teal-500 transition-colors ${
-              theme === "dark" ? "text-gray-300" : "text-gray-600"
-            }`}
-          >
-            <FaLinkedin className="text-3xl" />
-            <span className="text-xs">LinkedIn</span>
-          </a>
-          <a
-            href="https://x.com/AmishaS86389365?s=08"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`flex flex-col items-center gap-2 hover:text-teal-500 transition-colors ${
-              theme === "dark" ? "text-gray-300" : "text-gray-600"
-            }`}
-          >
-            <FaXTwitter className="text-3xl" />
-            <span className="text-xs">Twitter</span>
-          </a>
-          <a
-            href="https://medium.com/@amisha1701"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`flex flex-col items-center gap-2 hover:text-teal-500 transition-colors ${
-              theme === "dark" ? "text-gray-300" : "text-gray-600"
-            }`}
-          >
-            <SiMedium className="text-3xl" />
-            <span className="text-xs">Medium</span>
-          </a>
+        <div className="flex flex-wrap gap-6 sm:gap-8 items-center justify-center">
+          {[
+            {
+              href: "mailto:amishasingh1701@gmail.com",
+              icon: <FaEnvelope className="text-2xl sm:text-3xl" />,
+              label: "Email",
+            },
+            {
+              href: "https://github.com/AMISHA1703",
+              icon: <FaGithub className="text-2xl sm:text-3xl" />,
+              label: "GitHub",
+            },
+            {
+              href: "https://www.linkedin.com/in/amisha-singh1701/",
+              icon: <FaLinkedin className="text-2xl sm:text-3xl" />,
+              label: "LinkedIn",
+            },
+            {
+              href: "https://x.com/AmishaS86389365?s=08",
+              icon: <FaXTwitter className="text-2xl sm:text-3xl" />,
+              label: "Twitter",
+            },
+            {
+              href: "https://medium.com/@amisha1701",
+              icon: <SiMedium className="text-2xl sm:text-3xl" />,
+              label: "Medium",
+            },
+          ].map(({ href, icon, label }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              className={`flex flex-col items-center gap-2 hover:text-teal-500 transition-colors ${
+                theme === "dark" ? "text-gray-300" : "text-gray-600"
+              }`}
+            >
+              {icon}
+              <span className="text-xs sm:text-sm">{label}</span>
+            </a>
+          ))}
         </div>
       ),
     },
   ];
 
-  const containerClasses =
-    theme === "dark"
-      ? "bg-black/30 rounded-xl border border-white/10"
-      : "bg-white/60 rounded-xl border border-black/10";
-
-  const headingClasses = theme === "dark" ? "text-white" : "text-black";
-
-  const nextSlide = () =>
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
   const prevSlide = () =>
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
-  // Auto-slide (paused on hover)
+  // Auto-slide
   useEffect(() => {
-    if (isPaused) return;
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 7000);
+    }, 6000);
     return () => clearInterval(interval);
-  }, [isPaused, slides.length]);
+  }, []);
+
+  const sectionClasses =
+    theme === "dark"
+      ? "bg-black/20 border border-white/10"
+      : "bg-white border border-black/10";
+
+  const cardClasses =
+    theme === "dark"
+      ? "bg-black/5 border border-white/10 hover:bg-black/20 text-white"
+      : "bg-white border border-gray-300 hover:bg-gray-100 text-black";
+
+  const headingClasses = theme === "dark" ? "text-white" : "text-black";
+  const subHeadingClasses = theme === "dark" ? "text-gray-500" : "text-gray-600";
 
   return (
-    <div
-      ref={containerRef}
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      className={`relative p-6 sm:p-8 mt-6 mb-2 backdrop-blur-sm transition-all duration-300 shadow-md hover:shadow-teal-500/10 ${containerClasses}`}
+    <section
+      className={`backdrop-blur-md rounded-xl p-6  mt-6 mb-6 transition-all duration-300 ${sectionClasses}`}
     >
-      <h2
-        className={`text-2xl sm:text-3xl font-semibold text-center mb-6 ${headingClasses}`}
-      >
-        {slides[currentSlide].title}
-      </h2>
-
-      <div className="min-h-[200px] flex items-center justify-center px-8">
-        {slides[currentSlide].content}
+      {/* Header (Dynamic Title) */}
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+        <h2
+          className={`text-lg md:text-2xl font-medium text-center md:text-left ${headingClasses}`}
+        >
+          {slides[currentSlide].title}
+        </h2>
+        <span
+          className={`text-xs md:text-sm transition-colors duration-300 text-center md:text-right ${subHeadingClasses}`}
+        >
+          {slides[currentSlide].subtitle}
+        </span>
       </div>
 
-      <button
-        onClick={prevSlide}
-        className={`absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-gray-700/50 transition-colors ${
-          theme === "dark"
-            ? "text-gray-400 hover:text-white"
-            : "text-gray-600 hover:text-black"
-        }`}
-      >
-        <FaChevronLeft className="text-xl" />
-      </button>
-
-      <button
-        onClick={nextSlide}
-        className={`absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-gray-700/50 transition-colors ${
-          theme === "dark"
-            ? "text-gray-400 hover:text-white"
-            : "text-gray-600 hover:text-black"
-        }`}
-      >
-        <FaChevronRight className="text-xl" />
-      </button>
-
-      <div className="flex justify-center gap-2 mt-6">
-        {slides.map((_, index) => (
+      {/* Slider */}
+      <div className="mt-6 relative">
+        <article
+          className={`p-4 rounded-lg backdrop-blur-sm transition-all duration-300 shadow-md hover:shadow-teal-500/10 relative ${cardClasses}`}
+        >
+          {/* Navigation Arrows */}
           <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentSlide
-                ? "bg-teal-500 w-8"
-                : theme === "dark"
-                ? "bg-gray-600 hover:bg-gray-500"
-                : "bg-gray-400 hover:bg-gray-500"
+            onClick={prevSlide}
+            className={`absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full transition-colors duration-300 z-10 ${
+              theme === "dark"
+                ? "text-gray-400 hover:text-white hover:bg-white/5"
+                : "text-gray-600 hover:text-black hover:bg-gray-100"
             }`}
-          />
-        ))}
+            aria-label="Previous slide"
+          >
+            <FaChevronLeft className="text-xl" />
+          </button>
+
+          <button
+            onClick={nextSlide}
+            className={`absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full transition-colors duration-300 z-10 ${
+              theme === "dark"
+                ? "text-gray-400 hover:text-white hover:bg-white/5"
+                : "text-gray-600 hover:text-black hover:bg-gray-100"
+            }`}
+            aria-label="Next slide"
+          >
+            <FaChevronRight className="text-xl" />
+          </button>
+
+          {/* Slide Content */}
+          <div className="px-6 py-4 text-center">
+            {slides[currentSlide].content}
+          </div>
+
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-4">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === currentSlide
+                    ? "bg-teal-500 w-8"
+                    : theme === "dark"
+                    ? "bg-gray-600 hover:bg-gray-500 w-2"
+                    : "bg-gray-400 hover:bg-gray-500 w-2"
+                }`}
+              />
+            ))}
+          </div>
+        </article>
       </div>
-    </div>
+    </section>
   );
 };
 
